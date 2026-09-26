@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset Avenue | Citra 8</title>
+    <meta name="description" content="Destinasi senja dan gaya hidup premium di Jakarta.">
+    
+    <!-- Google Fonts: Playfair Display (Serif) & DM Sans (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        base: '#FBF9F6',      /* Warm off-white background */
+                        ink: '#2C2A29',       /* Soft dark brown/black text */
+                        sage: '#546356',      /* Deep sage green accent */
+                        taupe: '#A68A77',     /* Warm taupe/sand accent */
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #FBF9F6;
+            color: #2C2A29;
+        }
+
+        /* Smooth reveal animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.5s; }
+
+        /* Image hover zoom effect */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom-container img {
+            transition: transform 1.5s ease;
+        }
+        .img-zoom-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Arch shape utilities */
+        .arch-top {
+            border-top-left-radius: 50vw 20vw;
+            border-top-right-radius: 50vw 20vw;
+        }
+        @media (min-width: 768px) {
+            .arch-top {
+                border-top-left-radius: 40vw 15vw;
+                border-top-right-radius: 40vw 15vw;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden selection:bg-taupe selection:text-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-500 py-6 px-6 md:px-12 bg-base/0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-serif font-medium tracking-tight text-ink z-10">Citra 8.</a>
+            
+            <!-- MENU DIUPDATE SESUAI 6 KETENTUAN TUGAS -->
+            <div class="hidden md:flex gap-8 items-center text-sm font-medium tracking-wide">
+                <a href="#beranda" class="hover:text-taupe transition-colors">Beranda</a>
+                <a href="#filosofi" class="hover:text-taupe transition-colors">Tentang Destinasi</a>
+                <a href="#fasilitas" class="hover:text-taupe transition-colors">Daya Tarik</a>
+                <a href="#informasi" class="hover:text-taupe transition-colors">Informasi</a>
+                <a href="#paket" class="hover:text-taupe transition-colors">Paket Wisata</a>
+                <a href="#kontak" class="hover:text-taupe transition-colors">Kontak</a>
+            </div>
+            
+            <a href="#paket" class="hidden md:inline-flex items-center justify-center border border-ink text-ink hover:bg-ink hover:text-base text-sm font-medium px-6 h-11 rounded-full transition-colors duration-300 z-10 whitespace-nowrap outline-none select-none">
+    Kunjungi Kami
+</a>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden z-10 text-ink">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative pt-32 pb-16 min-h-[85vh] flex flex-col justify-center items-center w-full">
+        <!-- Main Hero Text Overlapping Image -->
+        <div class="text-center z-10 px-4 mb-[-15%] md:mb-[-10%] reveal">
+            <span class="block text-taupe text-xs md:text-sm font-semibold tracking-[0.2em] uppercase mb-4">Citra 8</span>
+            <h1 class="font-serif text-[13vw] leading-[0.85] tracking-tight text-ink uppercase">
+                Sunset<br>Avenue
+            </h1>
+            <!-- PENAMBAHAN WAJIB: Call to Action (CTA) -->
+            <div class="mt-6">
+                <a href="#paket" class="inline-flex items-center justify-center bg-ink text-white hover:bg-taupe text-sm font-medium px-6 h-11 rounded-full transition-colors duration-300 shadow-lg whitespace-nowrap outline-none">
+                    Jelajahi Keindahan Kami - Rencanakan Kunjungan!
+                </a>
+            </div>
+        </div>
+        
+        <!-- Large Image (Full Width tapi Melengkung) -->
+        <div class="w-full relative z-0 reveal reveal-delay-1">
+            <!-- Mengembalikan class arch-top agar sisi atasnya melengkung -->
+            <div class="arch-top overflow-hidden bg-gray-200 aspect-[4/3] md:aspect-[21/9]">
+                <img src="HOME.jpg" alt="Pemandangan Danau Senja" class="w-full h-full object-cover object-center scale-105">
+                <!-- Soft gradient overlay for elegance -->
+                <div class="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro / Vibe Section (TETAP ASLI) -->
+    <section class="py-24 md:py-32 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl text-ink leading-tight tracking-tight mb-8">
+                Menyatu dengan alam,<br> <span class="italic text-taupe">tepat di tengah kota.</span>
+            </h2>
+            <p class="text-ink/70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+                Sunset Avenue menghadirkan ritme hidup yang baru. Sebuah pelarian elegan di mana lanskap hijau bertemu dengan tenangnya air danau, menciptakan panggung sempurna untuk momen-momen emas Anda.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filosofi Section (TETAP ASLI - Berfungsi sebagai Tentang Destinasi) -->
+    <section id="filosofi" class="py-24 md:py-32 bg-ink text-base px-6">
+        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2 reveal">
+                <div class="arch-top overflow-hidden aspect-[3/4] md:aspect-square">
+                    <img src="profil.jpeg" alt="suasana" class="w-full h-full object-cover opacity-90">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 reveal reveal-delay-1">
+                <span class="block text-taupe text-sm font-semibold tracking-[0.2em] uppercase mb-4">Profil Kami</span>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight mb-8">Simfoni Antara Arsitektur & Alam.</h2>
+                <p class="text-base/70 text-lg font-light leading-relaxed mb-8">
+                    Sunset Avenue Citra 8 merupakan kawasan lifestyle di Jakarta Barat yang menawarkan suasana santai di tepi danau. Cocok untuk kulineran, nongkrong, olahraga, dan menikmati indahnya sunset bersama teman maupun keluarga.
+                </p>
+                <div class="grid grid-cols-2 gap-8 border-t border-white/20 pt-8">
+                    <div>
+                        <h4 class="font-serif text-3xl text-taupe mb-2">12<span class="text-lg">Ha</span></h4>
+                        <p class="text-sm text-base/60 font-light">Luas Area Pengembangan</p>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-3xl text-taupe mb-2">360&deg;</h4>
+                        <p class="text-sm text-base/60 font-light">Panorama Tepi Danau</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities (Fasilitas) (TETAP ASLI - Berfungsi sebagai Daya Tarik) -->
+    <section id="fasilitas" class="py-24 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <h2 class="font-serif text-4xl md:text-5xl text-ink tracking-tight mb-4">Daya Tarik & fasilitas</h2>
+                    <p class="text-ink/60 font-light max-w-md">Nikmati berbagai pilihan tempat dan fasilitas untuk bersantai, beraktivitas, dan menghabiskan waktu bersama keluarga maupun teman.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="group bg-base rounded-[2rem] p-8 transition duration-500 hover:bg-taupe hover:text-white reveal">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-16 text-taupe group-hover:text-ink transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl mb-3">Kuliner Tepi Danau</h3>
+                    <p class="text-sm opacity-70 font-light leading-relaxed">Pilihan artisan cafe dan restoran dengan panorama langsung menghadap air.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-base rounded-[2rem] p-8 transition duration-500 hover:bg-sage hover:text-white reveal reveal-delay-1">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-16 text-sage group-hover:text-ink transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl mb-3">Jalur Lari & Sepeda</h3>
+                    <p class="text-sm opacity-70 font-light leading-relaxed">Trek berstandar tinggi yang memutari area danau, aman dan bebas kendaraan bermotor.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-base rounded-[2rem] p-8 transition duration-500 hover:bg-taupe hover:text-white reveal reveal-delay-2">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-16 text-taupe group-hover:text-ink transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl mb-3">Ruang Terbuka Hijau</h3>
+                    <p class="text-sm opacity-70 font-light leading-relaxed">Taman lanskap estetis untuk piknik, membaca buku, atau sekadar menikmati angin sore.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group bg-base rounded-[2rem] p-8 transition duration-500 hover:bg-sage hover:text-white reveal reveal-delay-3">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-16 text-sage group-hover:text-ink transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl mb-3">Kawasan Pet Friendly</h3>
+                    <p class="text-sm opacity-70 font-light leading-relaxed">Area ramah hewan peliharaan dengan fasilitas sanitasi agar anabul Anda ikut bersenang-senang.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tenant & Kurasi (TETAP ASLI) -->
+    <section id="tenant" class="py-24 md:py-32 bg-taupe/5 px-6 border-y border-ink/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="block text-taupe text-sm font-semibold tracking-[0.2em] uppercase mb-4">PILIHAN</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-ink tracking-tight mb-4">Kuliner & Hangout</h2>
+                <p class="text-ink/60 font-light max-w-lg mx-auto">Beragam pilihan tempat makan dan kafe untuk menemani waktu santai, mulai dari ngopi, kulineran, hingga nongkrong bersama teman.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="reveal">
+                    <div class="img-zoom-container rounded-2xl overflow-hidden mb-6 aspect-[4/5]">
+                        <img src="CAFE.jpeg" alt="Cafe" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-serif text-2xl mb-2 text-ink">Artisan Coffee & Roastery</h3>
+                    <p class="text-sm text-ink/70 font-light">Awali pagi dengan secangkir kopi bernuansa danau yang tenang.</p>
+                </div>
+                <div class="reveal reveal-delay-1">
+                    <div class="img-zoom-container rounded-2xl overflow-hidden mb-6 aspect-[4/5]">
+                        <img src="FINEDINING.jpeg" alt="Restaurant" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-serif text-2xl mb-2 text-ink">Lakeside Fine Dining</h3>
+                    <p class="text-sm text-ink/70 font-light">Eksplorasi mahakarya kuliner global sambil menikmati gemerlap lampu malam.</p>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div class="img-zoom-container rounded-2xl overflow-hidden mb-6 aspect-[4/5]">
+                        <img src="BOUTIQUE.jpeg" alt="Boutique" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-serif text-2xl mb-2 text-ink">Boutique & Groceries</h3>
+                    <p class="text-sm text-ink/70 font-light">Kebutuhan esensial harian dan butik fashion dalam satu kawasan berkelas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Experience (Gallery) (TETAP ASLI) -->
+    <section id="pengalaman" class="py-24 md:py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl text-ink tracking-tight mb-4">Galeri Senja</h2>
+                <p class="text-ink/60 font-light max-w-md mx-auto">Potret kehidupan di Sunset Avenue.</p>
+            </div>
+
+            <!-- Staggered Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
+                <!-- Large Image Left -->
+                <div class="md:col-span-7 img-zoom-container rounded-[2rem] overflow-hidden reveal">
+                    <img src="tempat nongkrong.jpeg" alt="tempat nongkrong" class="w-full aspect-square md:aspect-[4/3] object-cover">
+                </div>
+                
+                <!-- Two Smaller Images Right -->
+                <div class="md:col-span-5 flex flex-col gap-6 md:gap-10">
+                    <div class="img-zoom-container rounded-[2rem] overflow-hidden reveal reveal-delay-1">
+                        <img src="main.jpeg" alt="tempat bermain anak" class="w-full aspect-[4/3] md:aspect-[3/2] object-cover">
+                    </div>
+                    <div class="img-zoom-container rounded-[2rem] overflow-hidden reveal reveal-delay-2 md:ml-12">
+                        <img src="home.jpeg" alt="danau" class="w-full aspect-[4/3] md:aspect-[3/2] object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section (TETAP ASLI) -->
+    <section id="lokasi" class="py-24 md:py-32 bg-ink text-base px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+            <div class="w-full md:w-1/2 reveal">
+                <span class="block text-taupe text-sm font-semibold tracking-[0.2em] uppercase mb-4">Aksesibilitas</span>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight mb-8">Terhubung Erat dengan Denyut Kota.</h2>
+                <p class="text-base/70 text-lg font-light leading-relaxed mb-10">
+                    Berlokasi strategis di Citra 8, Jakarta Barat. Sunset Avenue menawarkan kemudahan akses luar biasa ke berbagai titik vital ibu kota, menjadikannya oase yang mudah dijangkau dari arah mana saja.
+                </p>
+                
+                <ul class="space-y-6 border-t border-white/20 pt-8">
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full border border-taupe flex items-center justify-center text-taupe shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl">10 Menit</h4>
+                            <p class="text-sm font-light text-base/60">Bandara Internasional Soekarno-Hatta</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full border border-taupe flex items-center justify-center text-taupe shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl">5 Menit</h4>
+                            <p class="text-sm font-light text-base/60">Akses Tol JORR & Tol Dalam Kota</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full border border-taupe flex items-center justify-center text-taupe shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl">15 Menit</h4>
+                            <p class="text-sm font-light text-base/60">Kawasan CBD Jakarta Barat</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="w-full md:w-1/2 reveal reveal-delay-1">
+                <div class="rounded-3xl overflow-hidden aspect-square border border-white/10 bg-white/5 flex items-center justify-center">
+                    <div class="text-center p-8">
+                         <svg class="w-20 h-20 text-taupe mx-auto mb-6 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0709726385494!2d106.6980792!3d-6.1211497999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a03002ef31a1b%3A0xcf45e31bf4d6ba5d!2sSUNSET%20AVENUE%20CITRA%208!5e0!3m2!1sid!2sid!4v1790218383002!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                         <h3 class="font-serif text-2xl text-taupe mb-2">Peta Interaktif</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENAMBAHAN WAJIB: Informasi Wisatawan Lengkap -->
+    <section id="informasi" class="py-16 bg-white px-6">
+        <div class="max-w-7xl mx-auto border-t border-ink/10 pt-16 reveal">
+            <h2 class="font-serif text-3xl md:text-4xl text-ink mb-10 text-center">Informasi Pengunjung</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-ink/80">
+                <div class="bg-base p-6 rounded-2xl">
+                    <h4 class="font-serif text-xl text-ink mb-4 border-b border-ink/10 pb-2">Waktu & Tiket</h4>
+                    <ul class="space-y-2 text-sm font-light">
+                        <li><strong>Jam Operasional:</strong> 07:00 - 22:00 WIB (Buka Setiap Hari)</li>
+                        <li><strong>Harga Tiket Masuk:</strong> Gratis (Area Publik)</li>
+                        <li><strong>Tips:</strong> Waktu terbaik berkunjung adalah pukul 16:00 sore.</li>
+                    </ul>
+                </div>
+                <div class="bg-base p-6 rounded-2xl">
+                    <h4 class="font-serif text-xl text-ink mb-4 border-b border-ink/10 pb-2">Fasilitas Umum</h4>
+                    <ul class="space-y-2 text-sm font-light">
+                        <li>- Area parkir luas (Mobil & Motor)</li>
+                        <li>- Toilet bersih & Wastafel</li>
+                        <li>- Area makan (Tenant Kuliner)</li>
+                        <li>- Keamanan 24 Jam</li>
+                    </ul>
+                </div>
+                <div class="bg-base p-6 rounded-2xl">
+                    <h4 class="font-serif text-xl text-ink mb-4 border-b border-ink/10 pb-2">Akomodasi Terdekat</h4>
+                    <ul class="space-y-2 text-sm font-light">
+                        <li>Tersedia penginapan & hotel budget di sekitar kawasan Kalideres & Bandara Soekarno Hatta berjarak kurang dari 15 menit.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENAMBAHAN WAJIB: Produk / Paket Wisata -->
+    <section id="paket" class="py-24 bg-taupe/10 px-6 border-t border-ink/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="block text-taupe text-sm font-semibold tracking-[0.2em] uppercase mb-4">Penawaran Eksklusif</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-ink tracking-tight mb-4">Paket Wisata</h2>
+                <p class="text-ink/60 font-light max-w-lg mx-auto mb-2">Pilih paket pengalaman terbaik untuk kunjungan Anda.</p>
+                <p class="text-taupe text-xs italic">*Harga simulasi untuk keperluan tugas akademik.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Paket 1 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-sm reveal border border-transparent hover:border-taupe transition">
+                    <div class="text-taupe text-sm font-bold tracking-widest uppercase mb-2">Durasi: 1 Hari</div>
+                    <h3 class="font-serif text-3xl mb-4 text-ink">Sunset Vibe Experience</h3>
+                    <ul class="space-y-3 mb-8 text-ink/70 text-sm font-light">
+                        <li>&bull; Jelajah area danau & taman</li>
+                        <li>&bull; Voucher makan siang/malam (Lakeside Cafe)</li>
+                        <li>&bull; Sesi foto bersama</li>
+                    </ul>
+                    <div class="flex justify-between items-center border-t border-ink/10 pt-6">
+                        <span class="font-serif text-2xl text-ink">Rp 250.000</span>
+                        <a href="#kontak" class="text-sm bg-ink text-white px-4 py-2 rounded-full hover:bg-taupe transition">Pilih Paket</a>
+                    </div>
+                </div>
+
+                <!-- Paket 2 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-sm reveal reveal-delay-1 border border-transparent hover:border-taupe transition">
+                    <div class="text-taupe text-sm font-bold tracking-widest uppercase mb-2">Durasi: 2 Hari 1 Malam</div>
+                    <h3 class="font-serif text-3xl mb-4 text-ink">Urban Weekend Getaway</h3>
+                    <ul class="space-y-3 mb-8 text-ink/70 text-sm font-light">
+                        <li>&bull; Penginapan (Homestay terdekat)</li>
+                        <li>&bull; Wisata alam (Jogging & Sepeda)</li>
+                        <li>&bull; Kuliner lokal & Fine Dining</li>
+                        <li>&bull; Workshop artisan lokal</li>
+                    </ul>
+                    <div class="flex justify-between items-center border-t border-ink/10 pt-6">
+                        <span class="font-serif text-2xl text-ink">Rp 850.000</span>
+                        <a href="#kontak" class="text-sm bg-ink text-white px-4 py-2 rounded-full hover:bg-taupe transition">Pilih Paket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial (TETAP ASLI) -->
+    <section class="py-24 md:py-32 bg-taupe/10 px-6">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <svg class="w-10 h-10 text-taupe mx-auto mb-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <blockquote class="font-serif text-3xl md:text-4xl lg:text-5xl text-ink leading-snug tracking-tight mb-10">
+                "Senja di sini bukan sekadar penanda waktu, melainkan sebuah pelarian elegan yang sempurna dari padatnya rutinitas kota."
+            </blockquote>
+            <p class="font-medium text-ink tracking-wide uppercase text-sm">Majalah Gaya Hidup Jakarta</p>
+        </div>
+    </section>
+
+    <!-- CTA & Footer (DIAKALI UNTUK MENAMBAH KONTAK & MEDSOS WAJIB) -->
+    <section id="kontak" class="relative bg-sage text-white pt-24 pb-12 px-6 overflow-hidden">
+        <!-- Abstract shape decoration -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-black/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10 reveal border-b border-white/20 pb-16">
+            <h2 class="font-serif text-4xl md:text-6xl mb-6">Momen Emas Menanti Anda.</h2>
+            <p class="font-light text-white/80 text-lg mb-10 max-w-xl mx-auto">
+                Kunjungi Sunset Avenue di Citra 8. Buka setiap hari mulai pukul 07:00 hingga 22:00 WIB.
+            </p>
+            <a href="https://maps.google.com" target="_blank" class="inline-block bg-white text-sage hover:bg-base text-sm font-semibold px-8 py-4 rounded-full transition duration-300 shadow-xl">
+                Lihat Petunjuk Arah
+            </a>
+        </div>
+
+        <!-- PENAMBAHAN WAJIB: Kontak & Sosial Media -->
+        <div class="max-w-7xl mx-auto mt-16 relative z-10 reveal grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h4 class="font-serif text-2xl mb-4">Hubungi Kami</h4>
+                <ul class="space-y-2 text-sm font-light text-white/80">
+                    <li><strong>WhatsApp:</strong> +62 812 3456 7890</li>
+                    <li><strong>Email:</strong> info@sunsetavenue.com</li>
+                    <li><strong>Alamat:</strong> Perumahan Citra 8, Pegadungan, Kalideres, Jakarta Barat</li>
+                </ul>
+            </div>
+            <div class="md:text-right">
+                <h4 class="font-serif text-2xl mb-4">Media Sosial</h4>
+                <div class="flex gap-4 md:justify-end text-sm font-light">
+                    <a href="#" class="hover:text-taupe transition">Instagram</a>
+                    <a href="#" class="hover:text-taupe transition">TikTok</a>
+                    <a href="#" class="hover:text-taupe transition">YouTube</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-16 border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-light text-white/60 reveal">
+            <div>
+                &copy; 2026 Sunset Avenue Citra 8 - Proyek Tugas Akademik.
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Mengubah bg-base/95 menjadi bg-base/75 agar lebih transparan
+                // Menambahkan backdrop-blur-lg agar efek transparannya terlihat seperti kaca buram
+                navbar.classList.add('bg-base/75', 'backdrop-blur-lg', 'shadow-sm', 'py-4');
+                navbar.classList.remove('bg-base/0', 'py-6');
+            } else {
+                navbar.classList.add('bg-base/0', 'py-6');
+                navbar.classList.remove('bg-base/75', 'backdrop-blur-lg', 'shadow-sm', 'py-4');
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
